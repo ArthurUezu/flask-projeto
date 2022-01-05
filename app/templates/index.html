@@ -2,26 +2,28 @@
 {%block title%}Diário{%endblock%}
 {%block content%}
 <div id="main-content">
-    <form action="" >
+    <form action="" method="post" >
+        {{ form.csrf_token }}
         <div class="form-group">
             <label for="title">Título</label>
-            <input class="form-control" placeholder="Título" type="text" name="title" id="title">
+            {{form.title(class="form-control")}}
             <label for="content">Conteúdo</label>
-            <textarea class="form-control" rows="4" placeholder="Conteúdo" type="textarea" name="content" id="content"></textarea>
-            <button class="form-control btn" type="submit" id="submit">
-                Postar
-            </button>
+            {{form.content(class="form-control",rows="4")}}
+            {{form.submit(class="form-control btn")}}
         </div>
     </form>
+    {%if posts%}
+    {%for post in posts%}
     <article class="post">
         <div class="title">
-            <h4>Exemplo</h4>
-            <time datetime="2024-01-5">05/01/2022</time>
+            <h4>{{post.title}}</h4>
+            <time>{{post.date.day}}/{{post.date.month}}/{{post.date.year}}</time>
         </div>
         <div class="content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempore obcaecati quos reprehenderit earum dolore, debitis, a nobis esse ad maxime architecto, nemo quam. Perspiciatis minima nisi distinctio! Consectetur, repellendus.</p>
+            <p>{{post.content}}</p>
         </div>
     </article>
-    
+    {%endfor%}
+    {%endif%}
 </div>
 {%endblock%}

@@ -7,4 +7,5 @@ app.config.from_object("config")
 db = SQLAlchemy(app)
 migrate = Migrate(app,db)
 cli = FlaskGroup(app)
+from app.models import tables
 from app.controllers import routes
