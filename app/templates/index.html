@@ -1,5 +1,27 @@
 {%extends "base.html"%}
 {%block title%}Diário{%endblock%}
 {%block content%}
-<h1>Hello!</h1>
+<div id="main-content">
+    <form action="" >
+        <div class="form-group">
+            <label for="title">Título</label>
+            <input class="form-control" placeholder="Título" type="text" name="title" id="title">
+            <label for="content">Conteúdo</label>
+            <textarea class="form-control" rows="4" placeholder="Conteúdo" type="textarea" name="content" id="content"></textarea>
+            <button class="form-control btn" type="submit" id="submit">
+                Postar
+            </button>
+        </div>
+    </form>
+    <article class="post">
+        <div class="title">
+            <h4>Exemplo</h4>
+            <time datetime="2024-01-5">05/01/2022</time>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempore obcaecati quos reprehenderit earum dolore, debitis, a nobis esse ad maxime architecto, nemo quam. Perspiciatis minima nisi distinctio! Consectetur, repellendus.</p>
+        </div>
+    </article>
+    
+</div>
 {%endblock%}

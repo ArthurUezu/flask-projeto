@@ -1,0 +1,57 @@
+/* General settings */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Libre Baskerville', serif;
+    color:white;
+}
+#main{
+    background-color: black;
+    width: 100%;
+    padding: 0 15%;
+}
+
+/* Header organization */
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed white;
+}
+header>#logo>h1{
+    font-family: 'Amatic SC', cursive;
+    font-size: 10rem;
+    text-align: center;
+}
+
+/* Content organization */
+form{
+    padding-bottom: 20px;
+    border-bottom: 1px dashed white;
+}
+.form-control{
+    color:white;
+    border: 1px solid white;
+    background-color: black
+}
+label{
+    padding-top: 15px;
+}
+#submit{
+    margin-top: 15px;
+    border: 1px solid white;
+}
+
+/* Post organization */
+.post{
+    padding: 15px 0px;
+    border-bottom: 1px dashed white;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+
+}
