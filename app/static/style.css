@@ -55,3 +55,23 @@ label{
     justify-content: space-between;
 
 }
+.content>p{
+    text-align: justify;
+
+}
+
+.post-sidebar button{
+    background-color: black;
+    display: inline;
+}
+.post-sidebar form{
+    display: inline;
+    border: none;
+}
+.fas{
+    display: inline;
+    color: white;
+    padding: 4px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
