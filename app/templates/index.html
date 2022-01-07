@@ -2,7 +2,7 @@
 {%block title%}Diário{%endblock%}
 {%block content%}
 <div id="main-content">
-    <form action="" method="post" >
+    <form action="" method="post" id="newpost" >
         {{ form.csrf_token }}
         <div class="form-group">
             <label for="title">Título</label>
@@ -12,23 +12,37 @@
             {{form.submit(class="form-control btn")}}
         </div>
     </form>
+    
     {%if posts%}
     {%for post in posts[::-1]%}
     <article class="post">
         <div class="title">
-            <h4>{{post.title}}</h4>
+            <div>
+                <h4 class="post-id hidden">{{post.id}}</h4><!-- -->
+                <h5 class="post-title" contentEditable="false">{{post.title}}</h5>
+            </div>
             <div class="post-sidebar">
                 <time>{{post.date.day}}/{{post.date.month}}/{{post.date.year}}</time>
+                <button class="button edit"><i class="fas fa-edit"></i></button>
                 <form action="{{url_for('delete_post', id=post.id)}}" method="post">
-                    <button type="submit" class="btn btn-black"><i class="fas fa-trash"></i></button>
+                    <button type="submit" class="button delete"><i class="fas fa-trash"></i></button>
                 </form>
             </div>
         </div>
         <div class="content">
-            <p>{{post.content}}</p>
+            <p type="text" class="content-text" contentEditable="false">{{post.content}}</p>
         </div>
     </article>
     {%endfor%}
     {%endif%}
+    <form action="" method="post" id="edit-form" class="hidden" >
+        {{ edit_form.csrf_token }}
+        <div>
+            {{edit_form.id(id="edit-post-id", class="hidden")}}
+            {{edit_form.title(id="edit-post-title", class="hidden")}}
+            {{edit_form.content(id="edit-post-content", class="hidden")}}
+            {{edit_form.btSubmit(id="edit-post-sub", class="hidden")}}
+        </div>
+    </form>
 </div>
 {%endblock%}

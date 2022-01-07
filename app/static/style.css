@@ -63,6 +63,7 @@ label{
 .post-sidebar button{
     background-color: black;
     display: inline;
+    border: none;
 }
 .post-sidebar form{
     display: inline;
@@ -74,4 +75,10 @@ label{
     padding: 4px;
     border-radius: 50%;
     border: 1px solid white;
+}
+.post-id{
+    display: inline;
+}
+.hidden{
+    display: none;
 }
