@@ -1,3 +1,11 @@
+var forms = document.getElementsByClassName("form-control");
+for (let i=0;i<forms.length;i++){
+    forms[i].value = "";
+    forms[i].innerText = "";
+}
+forms[2].value = "Postar";
+
+console.log(forms.length);
 var editButton = document.getElementsByClassName("edit");
 for(let i = 0;i<editButton.length;i++){
     editButton[i].addEventListener('click',function (evt){
@@ -6,7 +14,10 @@ for(let i = 0;i<editButton.length;i++){
         let content = post.firstElementChild;
         let id = post.previousElementSibling.firstElementChild.firstElementChild
         title.setAttribute("contentEditable","true")
+        title.style.cssText += "border-bottom: 2px solid white"
         content.setAttribute("contentEditable","true")
+        content.style.cssText += "border-bottom: 2px solid white"
+
         button = document.createElement("button")
         button.innerText = "OK"
         button.classList.add("btn", "btn-danger")
@@ -20,6 +31,5 @@ for(let i = 0;i<editButton.length;i++){
             document.getElementById("edit-post-title").value = title.innerText
             form.submit()
         })
-        console.log(post);
     })
 }

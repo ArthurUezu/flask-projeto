@@ -5,17 +5,6 @@ from flask import render_template, redirect
 from app.models.tables import Post
 from app.models.forms import PostForm
 from app.models.forms import PostEditForm
-@app.route("/edit_post/<int:id>&<content>",methods=['GET','POST'])
-def edit_post(id,content):
-    edit_form = PostEditForm()
-    if(edit_form.validate_on_submit):
-        if edit_form.title.data != None:
-            post = Post.query.get(edit_form.id.data)
-            post.title = edit_form.title.data
-            post.content = edit_form.content.data
-            db.session.add(post)
-            db.session.commit()
-    return redirect(url_for('index'))
 
 @app.route("/delete_post/<int:id>",methods=['GET','POST'])
 def delete_post(id):
@@ -34,7 +23,7 @@ def index():
             post = Post(form.title.data,form.content.data)
             db.session.add(post)
             db.session.commit()
-            redirect(url_for('index'))
+            return redirect(url_for('index'))
     if(edit_form.validate_on_submit):
         try:
             edit_post = Post.query.get(edit_form.id.data)
@@ -42,7 +31,7 @@ def index():
             edit_post.content = edit_form.content.data
             db.session.add(edit_post)
             db.session.commit()
-            redirect(url_for('index'))
+            return redirect(url_for('index'))
         except:
             print()
     return render_template('index.html', form=form, posts=posts, edit_form = edit_form)
