@@ -9,3 +9,4 @@ migrate = Migrate(app,db)
 cli = FlaskGroup(app)
 from app.models import tables
 from app.controllers import routes
+from app.admin import admin

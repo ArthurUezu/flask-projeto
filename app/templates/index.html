@@ -2,17 +2,6 @@
 {%block title%}Diário{%endblock%}
 {%block content%}
 <div id="main-content">
-    <form action="" method="post" id="newpost" >
-        {{ form.csrf_token }}
-        <div class="form-group">
-            <label for="title">Título</label>
-            {{form.title(class="form-control")}}
-            <label for="content">Conteúdo</label>
-            {{form.content(class="form-control",rows="4")}}
-            {{form.submit(class="form-control btn")}}
-        </div>
-    </form>
-    
     {%if posts%}
     {%for post in posts[::-1]%}
     <article class="post">
@@ -23,10 +12,6 @@
             </div>
             <div class="post-sidebar">
                 <time>{{post.date.day}}/{{post.date.month}}/{{post.date.year}}</time>
-                <button class="button edit"><i class="fas fa-edit"></i></button>
-                <form action="{{url_for('delete_post', id=post.id)}}" method="post">
-                    <button type="submit" class="button delete"><i class="fas fa-trash"></i></button>
-                </form>
             </div>
         </div>
         <div class="content">
@@ -35,14 +20,5 @@
     </article>
     {%endfor%}
     {%endif%}
-    <form action="" method="post" id="edit-form" class="hidden" >
-        {{ edit_form.csrf_token }}
-        <div>
-            {{edit_form.id(id="edit-post-id", class="hidden")}}
-            {{edit_form.title(id="edit-post-title", class="hidden")}}
-            {{edit_form.content(id="edit-post-content", class="hidden")}}
-            {{edit_form.btSubmit(id="edit-post-sub", class="hidden")}}
-        </div>
-    </form>
 </div>
 {%endblock%}
