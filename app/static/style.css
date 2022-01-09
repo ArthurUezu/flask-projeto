@@ -26,6 +26,9 @@ header>#logo>h1{
     font-size: 10rem;
     text-align: center;
 }
+header h3{
+    text-align: center;
+}
 
 /* Content organization */
 form{

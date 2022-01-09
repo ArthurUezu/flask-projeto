@@ -25,7 +25,6 @@ for(let i = 0;i<editButton.length;i++){
         post.appendChild(button)
         button.addEventListener('click',function(){
             form = document.getElementById("edit-form");
-            console.log(form)
             document.getElementById("edit-post-content").value = content.innerText;
             document.getElementById("edit-post-id").value = id.innerText
             document.getElementById("edit-post-title").value = title.innerText
